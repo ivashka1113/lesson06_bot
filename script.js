@@ -16,7 +16,7 @@ const bot = function () {
     const gues = function () {
 
         if (k == 0) {
-            return oneMore = confirm("Игра окончена, хотели бы сыграть еще?");
+            return confirm("Игра окончена, хотели бы сыграть еще?") ? bot() : alert("Спасибо, что поиграли в мою игру");
         }
 
         let ans = prompt("Угадай число от 0 до 100", 54);
@@ -24,7 +24,7 @@ const bot = function () {
 
         switch (true) {
             case (ans === null):
-                return oneMore = confirm("Игра окончена, хотели бы сыграть еще?");
+                return confirm("Игра окончена, хотели бы сыграть еще?") ? bot() : alert("Спасибо, что поиграли в мою игру");
 
             case (!isNumber(ans)):
                 alert("Введи число!");
@@ -41,18 +41,11 @@ const bot = function () {
                 break;
 
             default:
-                return oneMore = confirm("Поздравляю, Вы угадали!!! Хотели бы сыграть еще?");
+                return confirm("Поздравляю, Вы угадали!!! Хотели бы сыграть еще?") ? bot() : alert("Спасибо, что поиграли в мою игру");
         }
         gues();
     }
-
     gues();
-
-    if (oneMore === true) {
-        bot();
-    } else if (oneMore === false) {
-        alert("Спасибо, что поиграли в мою игру");
-    }
 }
 
 bot();
