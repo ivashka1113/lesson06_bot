@@ -2,6 +2,12 @@
 
 let oneMore;
 
+const newGame = function () {
+    const startGame = bot();
+    startGame();
+    if (oneMore === true) newGame();
+}
+
 const isNumber = function (number) {
     return !isNaN(parseFloat(number)) && isFinite(number) && !/\s/g.test(number);
 }
@@ -44,9 +50,5 @@ const bot = function () {
     }
 }
 
-do {
-    const startGame = bot();
-    startGame();
-} while (oneMore === true);
-
+newGame();
 alert("Спасибо, что поиграли в мою игру");
