@@ -10,30 +10,26 @@ const bot = function () {
     console.log(num);
 
     return function gues() {
-        let ans = prompt("Угадай число от 1 до 100", 54);
+        let ans = prompt("Угадай число от 0 до 100", 54);
         console.log(ans);
-
-        if (ans === null) {
-            return alert("Игра окончена");
-        } else if (!isNumber(ans)) {
-            alert("Введи число!");
-            gues();
-        }
 
         switch (true) {
 
+            case (ans === null):
+                return alert("Игра окончена");
+            case (!isNumber(ans)):
+                alert("Введи число!");
+                break;
             case (ans < num):
                 alert("Загаданное число больше, попробуй ещё раз");
-                gues();
                 break;
             case (ans > num):
                 alert("Загаданное число меньше, попробуй ещё раз");
-                gues();
                 break;
             default:
-                alert("Поздравляю, вы угадали");
-                break;
+                return alert("Поздравляю, вы угадали");
         }
+        gues();
     }
 }
 
